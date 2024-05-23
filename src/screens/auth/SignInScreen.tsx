@@ -1,12 +1,15 @@
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const SignInScreen = ({navigation}: any) => {
   return (
     <View style={styles.container}>
       <TouchableOpacity
         style={styles.button}
-        onPress={() => navigation.navigate('SignUpScreen')}>
+        onPress={async () =>
+          await AsyncStorage.setItem('assetToken', 'asdasdasd')
+        }>
         <Text style={styles.texts}>Sign In</Text>
       </TouchableOpacity>
     </View>

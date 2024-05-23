@@ -22,12 +22,7 @@ const SplashScreen = () => {
       />
       <SpaceCP height={40} />
       <Text style={styles.text}>InfoZen</Text>
-      <View
-        style={{
-          justifyContent: 'flex-end',
-          position: 'absolute',
-          bottom: 50,
-        }}>
+      <View style={styles.indicator}>
         <ActivityIndicator size={100} color={themeColors.primary} />
       </View>
     </View>
@@ -40,5 +35,13 @@ const styles = StyleSheet.create({
     fontSize: 35,
     fontWeight: 'bold',
     color: themeColors.text,
+  },
+  indicator: {
+    justifyContent: 'flex-end',
+    position: 'absolute',
+    bottom: 90,
+    left: 0,
+    right: 0,
+    top: 0,
   },
 });
