@@ -6,4 +6,11 @@ export const globalStyles = StyleSheet.create({
     flex: 1,
     backgroundColor: themeColors.white,
   },
+  button: {
+    backgroundColor: themeColors.primary,
+    padding: 10,
+    borderRadius: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 });
