@@ -1,3 +1,4 @@
+import Onboarding from './auth/Onboarding';
 import SignInScreen from './auth/SignInScreen';
 import SignUpScreen from './auth/SignUpScreen';
 import SplashScreen from './auth/SplashScreen';
@@ -14,4 +15,5 @@ export {
   SignInScreen,
   SignUpScreen,
   SplashScreen,
+  Onboarding
 };
