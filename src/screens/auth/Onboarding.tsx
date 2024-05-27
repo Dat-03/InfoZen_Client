@@ -12,6 +12,8 @@ import Swiper from 'react-native-swiper';
 import {images} from '../../assets/images/png';
 import {appInfo} from '../../constants/AppInfo';
 import {themeColors} from '../../constants/ThemeColor';
+import {TextCP} from '../../components/customs';
+import {fontType} from '../../constants/FontType';
 
 const Onboarding = ({navigation}: any) => {
   const [index, setIndex] = useState(0);
@@ -34,7 +36,11 @@ const Onboarding = ({navigation}: any) => {
         <TouchableOpacity
           onPress={() => navigation.navigate('WelcomeScreen')}
           style={[styles.button, {backgroundColor: themeColors.gray2}]}>
-          <Text style={[styles.text, {color: themeColors.primary}]}>Skip</Text>
+          <TextCP
+            text="Skip"
+            color={themeColors.primary}
+            font={fontType.bold}
+          />
         </TouchableOpacity>
         <TouchableOpacity
           onPress={() =>
@@ -43,7 +49,8 @@ const Onboarding = ({navigation}: any) => {
               : navigation.navigate('WelcomeScreen')
           }
           style={[styles.button, {backgroundColor: themeColors.primary}]}>
-          <Text style={[styles.text, {color: themeColors.white}]}>Next</Text>
+          {/* <Text style={[styles.text, {color: themeColors.white}]}>Next</Text> */}
+          <TextCP text="Next" color={themeColors.white} font={fontType.bold} />
         </TouchableOpacity>
       </View>
     </View>
