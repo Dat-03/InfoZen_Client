@@ -8,11 +8,13 @@ export const globalStyles = StyleSheet.create({
     backgroundColor: themeColors.white,
   },
   button: {
-    backgroundColor: themeColors.primary,
-    padding: 10,
-    borderRadius: 10,
+    backgroundColor: themeColors.white,
+    padding: 16,
+    borderRadius: 99,
     justifyContent: 'center',
     alignItems: 'center',
+    minHeight:56,
+    flexDirection: 'row',
   },
   text: {
     fontFamily: fontType.regular,

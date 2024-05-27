@@ -1,5 +1,6 @@
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
+import { globalStyles } from '../../styles/globalStyles';
 
 const SignUpScreen = ({navigation}: any) => {
   return (
@@ -8,6 +9,11 @@ const SignUpScreen = ({navigation}: any) => {
         style={styles.button}
         onPress={() => navigation.navigate('ChatScreen')}>
         <Text style={styles.texts}>Sign In</Text>
+      </TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => navigation.goBack()}
+        style={[globalStyles.button]}>
+        <Text>Back</Text>
       </TouchableOpacity>
     </View>
   );

@@ -9,6 +9,8 @@ import {
 import React, {ReactNode} from 'react';
 import {globalStyles} from '../../../styles/globalStyles';
 import TextCP from '../TextCP/TextCP';
+import {themeColors} from '../../../constants/ThemeColor';
+import {fontType} from '../../../constants/FontType';
 
 interface Props {
   icon?: ReactNode;
@@ -34,12 +36,35 @@ const ButtonCP = (props: Props) => {
     onPress,
     iconFlex,
   } = props;
-  return (
-    <TouchableOpacity>
-      {icon && iconFlex === 'left' && icon}
+  return type === 'primary' ? (
+    <TouchableOpacity
+      onPress={onPress}
+      style={[
+        globalStyles.button,
+        {backgroundColor: color ?? themeColors.primary},
+        styles,
+      ]}>
+      {icon && icon}
 
-      <TextCP text={text} color={textColor} styles={textStyles} />
+      <TextCP
+        text={text}
+        color={textColor ?? themeColors.white}
+        styles={[
+          textStyles,
+          {
+            marginLeft: icon ? 12 : 0,
+          },
+        ]}
+        flex={icon && iconFlex === 'right' ? 1 : 0}
+      />
       {icon && iconFlex === 'right' && icon}
+    </TouchableOpacity>
+  ) : (
+    <TouchableOpacity>
+      <TextCP
+        text={text}
+        color={type == 'link' ? themeColors.primary : themeColors.text}
+      />
     </TouchableOpacity>
   );
 };
