@@ -1,25 +1,13 @@
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import React from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {ButtonCP} from '../../components/customs';
+import {ButtonCP, InputCP} from '../../components/customs';
 import {globalStyles} from '../../styles/globalStyles';
 
 const SignInScreen = ({navigation}: any) => {
   return (
     <View style={styles.container}>
-      <TouchableOpacity
-        onPress={() => navigation.goBack()}
-        style={[globalStyles.button]}>
-        <Text>Back</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity
-        style={styles.button}
-        onPress={async () =>
-          await AsyncStorage.setItem('assetToken', 'asdasdasd')
-        }>
-        <Text style={styles.texts}>Sign In</Text>
-      </TouchableOpacity>
+     <InputCP />
     </View>
   );
 };
