@@ -20,7 +20,7 @@ const TextCP = (props: Props) => {
       style={[
         {
           color: color ?? themeColors.text,
-          fontSize: size ?? title ? 24 : 16,
+          fontSize: size ?? title ? 32 : 16,
           flex: flex ?? 0,
           fontFamily: font ?? title ? fontType.bold : fontType.regular,
         },
