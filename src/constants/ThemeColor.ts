@@ -11,5 +11,6 @@ export const themeColors = {
   gray2: '#f4f4f4',
   gray3: '#9e9e9e',
   gray4: '#F7F8FA',
+  gray5: '#616161',
   link: '#201D67',
 };

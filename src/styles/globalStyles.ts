@@ -39,4 +39,18 @@ export const globalStyles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: 14,
   },
+  section: {
+    paddingHorizontal: 16,
+    paddingBottom: 20,
+  },
+  line: {
+    width: '100%',
+    borderWidth: 1,
+    borderColor: themeColors.graylight,
+  },
+  row: {
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+  },
 });

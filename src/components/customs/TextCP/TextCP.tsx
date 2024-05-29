@@ -1,4 +1,4 @@
-import {View, Text, StyleProp, TextStyle} from 'react-native';
+import {View, Text, StyleProp, TextStyle, Platform} from 'react-native';
 import React from 'react';
 import {themeColors} from '../../../constants/ThemeColor';
 import {fontType} from '../../../constants/FontType';
@@ -11,18 +11,22 @@ interface Props {
   font?: string;
   styles?: StyleProp<TextStyle>;
   title?: boolean;
+  numberOfLines?: number;
 }
 
 const TextCP = (props: Props) => {
-  const {text, color, size, flex, font, styles, title} = props;
+  const {text, color, size, flex, font, styles, title, numberOfLines} = props;
+  const fontSizeDefault = Platform.OS === 'ios' ? 16 : 14;
+
   return (
     <Text
+      numberOfLines={numberOfLines}
       style={[
         {
           color: color ?? themeColors.text,
-          fontSize: size ?? title ? 32 : 16,
+          fontSize: size ?? title ? 32 : 18,
           flex: flex ?? 0,
-          fontFamily: font ?? title ? fontType.bold : fontType.regular,
+          fontFamily: font ? font : title ? fontType.bold : fontType.regular,
         },
         styles,
       ]}>

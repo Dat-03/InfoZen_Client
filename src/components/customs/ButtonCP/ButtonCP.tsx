@@ -20,8 +20,12 @@ interface Props {
   styles?: StyleProp<ViewStyle>;
   textColor?: string;
   textStyles?: StyleProp<TextStyle>;
+  textFont?: string;
+  title?: boolean;
   onPress?: () => void;
   iconFlex?: 'left' | 'right';
+  numberOfLines?: number;
+  disable?: boolean;
 }
 
 const ButtonCP = (props: Props) => {
@@ -33,37 +37,57 @@ const ButtonCP = (props: Props) => {
     styles,
     textColor,
     textStyles,
+    textFont,
     onPress,
     iconFlex,
+    numberOfLines,
+    disable,
+    title,
   } = props;
   return type === 'primary' ? (
     <TouchableOpacity
+      activeOpacity={0.8}
       onPress={onPress}
+      disabled={disable}
       style={[
         globalStyles.button,
-        {backgroundColor: color ?? themeColors.primary},
+        {
+          backgroundColor: color
+            ? color
+            : disable
+            ? themeColors.gray
+            : themeColors.primary,
+          width: '90%',
+        },
         styles,
       ]}>
-      {icon && icon}
+      {icon && iconFlex === 'left' && icon}
 
       <TextCP
         text={text}
+        numberOfLines={numberOfLines}
         color={textColor ?? themeColors.white}
         styles={[
           textStyles,
           {
             marginLeft: icon ? 12 : 0,
+            fontSize: 16,
+            textAlign: 'center',
           },
         ]}
         flex={icon && iconFlex === 'right' ? 1 : 0}
+        font={textFont ?? fontType.bold}
       />
       {icon && iconFlex === 'right' && icon}
     </TouchableOpacity>
   ) : (
-    <TouchableOpacity>
+    <TouchableOpacity onPress={onPress}>
       <TextCP
         text={text}
-        color={type == 'link' ? themeColors.primary : themeColors.text}
+        flex={0}
+        color={type == 'link' ? themeColors.link : themeColors.text}
+        font={title ? fontType.bold : fontType.regular}
+        styles={[, {}, textStyles]}
       />
     </TouchableOpacity>
   );

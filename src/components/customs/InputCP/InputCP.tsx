@@ -68,7 +68,13 @@ const InputCP = (props: Props) => {
         }>
         {isPassword
           ? (isShowPass && (
-              <EyeSlash size={24} color={themeColors.primary} variant="Bold" />
+              <EyeSlash
+                size={24}
+                color={
+                  value.length > 0 ? themeColors.primary : themeColors.gray3
+                }
+                variant="Bold"
+              />
             )) || (
               <Eye
                 size={24}
@@ -80,7 +86,13 @@ const InputCP = (props: Props) => {
             )
           : value.length > 0 &&
             allowClear && (
-              <AntDesign name="close" size={22} color={themeColors.text} />
+              <AntDesign
+                name="close"
+                size={22}
+                color={
+                  value.length > 0 ? themeColors.primary : themeColors.gray3
+                }
+              />
             )}
       </TouchableOpacity>
     </View>
