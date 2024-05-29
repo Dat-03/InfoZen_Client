@@ -1,3 +1,4 @@
+import AuthProfile from './auth/AuthProfile';
 import Onboarding from './auth/Onboarding';
 import SignInScreen from './auth/SignInScreen';
 import SignUpScreen from './auth/SignUpScreen';
@@ -15,5 +16,6 @@ export {
   SignInScreen,
   SignUpScreen,
   SplashScreen,
-  Onboarding
+  Onboarding,
+  AuthProfile,
 };

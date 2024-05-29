@@ -76,7 +76,7 @@ const ButtonCP = (props: Props) => {
           },
         ]}
         flex={icon && iconFlex === 'right' ? 1 : 0}
-        font={textFont ?? fontType.bold}
+        font={textFont ?? fontType.medium}
       />
       {icon && iconFlex === 'right' && icon}
     </TouchableOpacity>

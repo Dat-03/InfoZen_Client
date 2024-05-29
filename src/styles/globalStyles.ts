@@ -1,6 +1,7 @@
 import {Platform, StyleSheet} from 'react-native';
 import {themeColors} from '../constants/ThemeColor';
 import {fontType} from '../constants/FontType';
+import {appInfo} from '../constants/AppInfo';
 
 export const globalStyles = StyleSheet.create({
   container: {
@@ -52,5 +53,26 @@ export const globalStyles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'flex-start',
     alignItems: 'center',
+  },
+  shadow: {
+    shadowColor: 'rgba(1,1,1,0.3)',
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.2,
+    shadowRadius: 1.41,
+    elevation: 1.5,
+  },
+  buttonLogin: {
+    backgroundColor: 'white',
+    padding: 10,
+    borderRadius: 99,
+    width: appInfo.sizes.WIDTH / 4.1,
+    height: 60,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderWidth: 0.5,
+    borderColor: themeColors.graylight,
   },
 });

@@ -28,15 +28,17 @@ const SignInScreen = ({navigation}: any) => {
 
       <View style={{gap: 15, paddingVertical: 25}}>
         <TextCP text="Welcome back 👋" font={fontType.bold} title />
-        <TextCP text="Please enter your email & password to log in." />
+        <TextCP
+          text="Please enter your email & password to log in."
+          size={15}
+        />
       </View>
       <View style={{gap: 15}}>
-        <TextCP text="Email address" font={fontType.bold} />
+        <TextCP text="Email address" font={fontType.bold} size={15} />
         <InputCP
           value={email}
           onChange={val => setEmail(val)}
           placeholder="Email"
-          allowClear
           isCheck
           suffix={
             <Sms
@@ -46,7 +48,7 @@ const SignInScreen = ({navigation}: any) => {
             />
           }
         />
-        <TextCP text="Password" font={fontType.bold} />
+        <TextCP text="Password" font={fontType.bold} size={15} />
         <InputCP
           value={password}
           onChange={val => setPassword(val)}
@@ -67,7 +69,7 @@ const SignInScreen = ({navigation}: any) => {
               />
             )}
           </TouchableOpacity>
-          <TextCP text="Remember me" font={fontType.semiBold} />
+          <TextCP text="Remember me" font={fontType.semiBold} size={15} />
         </RowCP>
       </View>
       <View style={[globalStyles.line]} />
@@ -77,7 +79,7 @@ const SignInScreen = ({navigation}: any) => {
           text="Forgot password?"
           type="link"
           title
-          textStyles={{textAlign: 'center'}}
+          textStyles={{textAlign: 'center', fontSize: 16}}
         />
         <RowCP styles={{alignItems: 'center', paddingHorizontal: 20, gap: 5}}>
           <TextCP text="Don’t have an account?" />
@@ -95,9 +97,14 @@ const SignInScreen = ({navigation}: any) => {
           text="or continue with"
           styles={styles.text}
           color={themeColors.gray5}
+          size={15}
         />
       </View>
       <SocialLogin />
+      <View style={[globalStyles.line, {marginTop: 10}]} />
+      <RowCP styles={{paddingVertical: 20}}>
+        <ButtonCP text="Log in" type="primary" textFont={fontType.bold} />
+      </RowCP>
     </View>
   );
 };
@@ -105,16 +112,6 @@ const SignInScreen = ({navigation}: any) => {
 export default SignInScreen;
 
 const styles = StyleSheet.create({
-  line: {
-    width: '100%',
-    borderWidth: 1,
-    borderColor: themeColors.graylight,
-  },
-  header: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
   text: {
     position: 'absolute',
     right: 0,
