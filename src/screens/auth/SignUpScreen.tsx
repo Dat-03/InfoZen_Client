@@ -1,19 +1,27 @@
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {Sms, TickSquare} from 'iconsax-react-native';
 import React, {useState} from 'react';
-import {globalStyles} from '../../styles/globalStyles';
-import AntDesign from 'react-native-vector-icons/AntDesign';
+import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import Feather from 'react-native-vector-icons/Feather';
 import {ButtonCP, InputCP, RowCP, TextCP} from '../../components/customs';
 import {fontType} from '../../constants/FontType';
-import {Sms, TickSquare} from 'iconsax-react-native';
 import {themeColors} from '../../constants/ThemeColor';
+import {globalStyles} from '../../styles/globalStyles';
 import {HeaderCP, SocialLogin} from './components';
 
+const initValue = {
+  email: '',
+  password: '',
+};
+
 const SignUpScreen = ({navigation}: any) => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [values, setValues] = useState(initValue);
   const [checkBox, setCheckBox] = useState(false);
 
+  const hanldeChangeValues = (key: string, value: string) => {
+    const data: any = {...values};
+    data[`${key}`] = value;
+    setValues(data);
+  };
   const handleCheckBox = () => {
     setCheckBox(!checkBox);
   };
@@ -35,22 +43,22 @@ const SignUpScreen = ({navigation}: any) => {
       <View style={{gap: 15}}>
         <TextCP text="Email address" font={fontType.bold} size={15} />
         <InputCP
-          value={email}
-          onChange={val => setEmail(val)}
+          value={values.email}
+          onChange={val => hanldeChangeValues('email', val)}
           placeholder="Email"
           isCheck
           suffix={
             <Sms
               size={22}
-              color={email ? themeColors.primary : themeColors.gray3}
+              color={values.email ? themeColors.primary : themeColors.gray3}
               variant="Bold"
             />
           }
         />
         <TextCP text="Password" font={fontType.bold} size={15} />
         <InputCP
-          value={password}
-          onChange={val => setPassword(val)}
+          value={values.password}
+          onChange={val => hanldeChangeValues('password', val)}
           placeholder="Password"
           isPassword
           isCheck

@@ -80,6 +80,7 @@ const SignInScreen = ({navigation}: any) => {
           type="link"
           title
           textStyles={{textAlign: 'center', fontSize: 16}}
+          onPress={() => navigation.navigate('ForgotPasswordScreen')}
         />
         <RowCP styles={{alignItems: 'center', paddingHorizontal: 20, gap: 5}}>
           <TextCP text="Don’t have an account?" />
