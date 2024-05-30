@@ -44,16 +44,6 @@ const App = () => {
       )}
     </>
   );
-  // return (
-  //   <>
-  //     <StatusBar
-  //       barStyle={'dark-content'}
-  //       backgroundColor="transparent"
-  //       translucent
-  //     />
-  //     <WelcomeScreen />
-  //   </>
-  // );
 };
 
 export default App;

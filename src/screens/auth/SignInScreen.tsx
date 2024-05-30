@@ -1,6 +1,6 @@
 import {Sms, TickSquare} from 'iconsax-react-native';
 import React, {useEffect, useState} from 'react';
-import {StyleSheet, TouchableOpacity, View} from 'react-native';
+import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import Feather from 'react-native-vector-icons/Feather';
 import {ButtonCP, InputCP, RowCP, TextCP} from '../../components/customs';
 import {fontType} from '../../constants/FontType';
@@ -8,6 +8,7 @@ import {themeColors} from '../../constants/ThemeColor';
 import {globalStyles} from '../../styles/globalStyles';
 import {HeaderCP, SocialLogin} from './components';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import authenticationAPI from '../../apis/AuthApi';
 
 const SignInScreen = ({navigation}: any) => {
   const [email, setEmail] = useState('');
@@ -16,6 +17,19 @@ const SignInScreen = ({navigation}: any) => {
 
   const toggleRememberMe = () => {
     setIsRemember(!isRemember);
+  };
+
+  const handleLogin = async () => {
+    const api = `asdasdads`;
+    try {
+      const res = await authenticationAPI.HandleAuthentication(api, {
+        email,
+        password,
+      });
+      console.log(res);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -104,7 +118,12 @@ const SignInScreen = ({navigation}: any) => {
       <SocialLogin />
       <View style={[globalStyles.line, {marginTop: 10}]} />
       <RowCP styles={{paddingVertical: 20}}>
-        <ButtonCP text="Log in" type="primary" textFont={fontType.bold} />
+        <ButtonCP
+          text="Log in"
+          type="primary"
+          textFont={fontType.bold}
+          onPress={handleLogin}
+        />
       </RowCP>
     </View>
   );
